@@ -3,11 +3,11 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
 function testLoad(type, name, count) {
   var loadFn = type.fn[name];
-  isEqual('function', typeof loadFn);
+  assert.sameValue('function', typeof loadFn);
   var bufLanes = 2 * type.lanes;  // Test all alignments.
   var bufSize = bufLanes * type.laneSize + 8;  // Extra for over-alignment test.
   var ab = new ArrayBuffer(bufSize);

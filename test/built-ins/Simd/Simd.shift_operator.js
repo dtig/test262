@@ -3,11 +3,11 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
 // Compare shift op's behavior to ref op at each lane.
 function testShiftOp(type, op, refOp) {
-  isEqual('function', typeof type.fn[op]);
+  assert.sameValue('function', typeof type.fn[op]);
   var zero = type.fn();
   for (var v of type.interestingValues) {
     var s = type.laneSize * 8;

@@ -3,7 +3,7 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
 
 test('Float32x4 Int32x4 round trip', function() {

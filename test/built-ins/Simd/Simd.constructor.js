@@ -3,12 +3,12 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
 // Test the constructor and splat with the given lane values.
 function testConstructor(type) {
-  isEqual('function', typeof type.fn);
-  isEqual('function', typeof type.fn.splat);
+  assert.sameValue('function', typeof type.fn);
+  assert.sameValue('function', typeof type.fn.splat);
   for (var v of type.interestingValues) {
     var expected = simdConvert(type, v);
     var result = createSplatValue(type, v);

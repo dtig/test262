@@ -3,11 +3,11 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
 // From<type>Bits functions.
 function testFromBits(toType, fromType, name) {
-  isEqual('function', typeof toType.fn[name]);
+  assert.sameValue('function', typeof toType.fn[name]);
   for (var v of fromType.interestingValues) {
     var fromValue = createSplatValue(fromType, v);
     var result = toType.fn[name](fromValue);

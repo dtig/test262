@@ -3,7 +3,7 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
 simdTypes.filter(isFloatType).forEach(function(type) {
   test(type.name + ' div', function() {

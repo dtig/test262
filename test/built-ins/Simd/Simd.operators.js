@@ -3,7 +3,7 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
 function testOperators(type) {
   var inst = createTestValue(type);
@@ -29,17 +29,17 @@ function testOperators(type) {
   throws(function() { inst >= inst });
   throws(function() { inst(); });
 
-  isEqual(inst[0], undefined);
-  isEqual(inst.a, undefined);
-  isEqual(!inst, false);
-  isEqual(!inst, false);
-  isEqual(inst ? 1 : 2, 1);
-  isEqual(inst ? 1 : 2, 1);
+  assert.sameValue(inst[0], undefined);
+  assert.sameValue(inst.a, undefined);
+  assert.sameValue(!inst, false);
+  assert.sameValue(!inst, false);
+  assert.sameValue(inst ? 1 : 2, 1);
+  assert.sameValue(inst ? 1 : 2, 1);
 
-  isEqual('function', typeof inst.toString);
-  isEqual(inst.toString(), simdToString(type, inst));
-  isEqual('function', typeof inst.toLocaleString);
-  isEqual(inst.toLocaleString(), simdToLocaleString(type, inst));
+  assert.sameValue('function', typeof inst.toString);
+  assert.sameValue(inst.toString(), simdToString(type, inst));
+  assert.sameValue('function', typeof inst.toLocaleString);
+  assert.sameValue(inst.toLocaleString(), simdToLocaleString(type, inst));
   // TODO: test valueOf?
 }
 

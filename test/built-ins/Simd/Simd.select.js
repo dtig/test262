@@ -3,10 +3,10 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
 function testSelect(type) {
-  isEqual('function', typeof type.fn.select);
+  assert.sameValue('function', typeof type.fn.select);
   // set a and b to values that are different for all numerical types.
   var av = 1;
   var bv = 2;

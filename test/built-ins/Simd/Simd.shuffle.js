@@ -3,10 +3,10 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
 function testShuffle(type) {
-  isEqual('function', typeof type.fn.shuffle);
+  assert.sameValue('function', typeof type.fn.shuffle);
   var indices = [];
   for (var i = 0; i < type.lanes; i++) indices.push(i);
 

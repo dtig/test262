@@ -3,8 +3,9 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
+
 test('Float32x4 Int32x4 load/store bit preservation', function() {
    // NaNs should stay unmodified when storing and loading to Float32Array
   var taf32 = new Float32Array(4);

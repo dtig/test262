@@ -3,15 +3,16 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
+
 function testCheck(type) {
-  isEqual('function', typeof type.fn.check);
+  assert.sameValue('function', typeof type.fn.check);
   // Other SIMD types shouldn't check for this type.
   var a = type.fn();
   for (var otherType of simdTypes) {
     if (otherType === type)
-      isEqual(a, type.fn.check(a));
+      assert.sameValue(a, type.fn.check(a));
     else
       throws(function() { otherType.check(a); });
   }

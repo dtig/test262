@@ -3,10 +3,10 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
 function testAllTrue(type) {
-  isEqual('function', typeof type.fn.allTrue);
+  assert.sameValue('function', typeof type.fn.allTrue);
   // All lanes 'true'.
   var a = type.fn.splat(true);
   ok(type.fn.allTrue(a));

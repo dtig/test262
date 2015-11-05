@@ -3,10 +3,10 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
 function testReplaceLane(type) {
-  isEqual('function', typeof type.fn.replaceLane);
+  assert.sameValue('function', typeof type.fn.replaceLane);
   var a = createTestValue(type);
   for (var v of type.interestingValues) {
     var expected = simdConvert(type, v);

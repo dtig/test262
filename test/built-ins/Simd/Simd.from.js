@@ -3,11 +3,11 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
 // From<type> functions.
 function testFrom(toType, fromType, name) {
-  isEqual('function', typeof toType.fn[name]);
+  assert.sameValue('function', typeof toType.fn[name]);
   for (var v of fromType.interestingValues) {
     var fromValue = createSplatValue(fromType, v);
     v = simdConvert(fromType, v);

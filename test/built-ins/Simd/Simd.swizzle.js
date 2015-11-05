@@ -3,10 +3,10 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
 function testSwizzle(type) {
-  isEqual('function', typeof type.fn.swizzle);
+  assert.sameValue('function', typeof type.fn.swizzle);
   var a = createTestValue(type);  // 0, 1, 2, 3, 4, 5, 6, ...
   var indices = [];
   // Identity swizzle.

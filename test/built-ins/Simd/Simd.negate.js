@@ -3,7 +3,7 @@
 /*---
 info: >
  SIMD Test Suite
-includes: [simdTypes.js, simdUtilityFunctions.js, testSimdFunction.js]
+includes: [simdUtilities.js]
 ---*/
 simdTypes.filter(isSigned).forEach(function(type) {
   test(type.name + ' neg', function() {
