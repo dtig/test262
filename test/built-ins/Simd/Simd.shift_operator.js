@@ -15,11 +15,12 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description: Test Shift operations.
 includes: [simdUtilities.js]
 ---*/
+
 // Compare shift op's behavior to ref op at each lane.
 function testShiftOp(type, op, refOp) {
   assert.sameValue('function', typeof type.fn[op]);
@@ -36,7 +37,7 @@ function testShiftOp(type, op, refOp) {
 }
 
 simdTypes.filter(isIntType).forEach(function(type) {
-  test(type.name + ' shiftLeftByScalar', function() {
+  testSimdFunction(type.name + ' shiftLeftByScalar', function() {
     function shift(a, bits) {
       if (bits>>>0 >= type.laneSize * 8) return 0;
       return a << bits;
@@ -46,7 +47,7 @@ simdTypes.filter(isIntType).forEach(function(type) {
 });
 
 simdTypes.filter(isSignedIntType).forEach(function(type) {
-  test(type.name + ' shiftRightByScalar', function() {
+  testSimdFunction(type.name + ' shiftRightByScalar', function() {
     function shift(a, bits) {
       if (bits>>>0 >= type.laneSize * 8)
         bits = type.laneSize * 8 - 1;
@@ -57,7 +58,7 @@ simdTypes.filter(isSignedIntType).forEach(function(type) {
 });
 
 simdTypes.filter(isUnsignedIntType).forEach(function(type) {
-  test(type.name + ' shiftRightByScalar', function() {
+  testSimdFunction(type.name + ' shiftRightByScalar', function() {
     function shift(a, bits) {
       if (bits>>>0 >= type.laneSize * 8) return 0;
       if (type.laneMask)

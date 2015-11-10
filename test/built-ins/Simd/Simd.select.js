@@ -15,11 +15,12 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description: Tests SIMD Select.
 includes: [simdUtilities.js]
 ---*/
+
 function testSelect(type) {
   assert.sameValue('function', typeof type.fn.select);
   // set a and b to values that are different for all numerical types.
@@ -37,7 +38,7 @@ function testSelect(type) {
 }
 
 simdTypes.filter(isNumerical).forEach(function(type) {
-  test(type.name + ' select', function() {
+  testSimdFunction(type.name + ' select', function() {
     testSelect(type);
   });
 });

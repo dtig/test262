@@ -15,12 +15,12 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description: From<type>Bits functions.
 includes: [simdUtilities.js]
 ---*/
-// From<type>Bits functions.
+
 function testFromBits(toType, fromType, name) {
   assert.sameValue('function', typeof toType.fn[name]);
   for (var v of fromType.interestingValues) {
@@ -36,7 +36,7 @@ simdTypes.forEach(function(toType) {
   if (!toType.fromBits) return;
   for (var fromType of toType.fromBits) {
     var fn = 'from' + fromType.name + 'Bits';
-    test(toType.name + ' ' + fn, function() {
+    testSimdFunction(toType.name + ' ' + fn, function() {
       testFromBits(toType, fromType, fn);
     });
   }

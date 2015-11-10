@@ -15,13 +15,13 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description: Test round trip.
 includes: [simdUtilities.js]
 ---*/
 
-test('Float32x4 Int32x4 round trip', function() {
+testSimdFunction('Float32x4 Int32x4 round trip', function() {
   // NaNs should stay unmodified across bit conversions
   var m = SIMD.Int32x4(0xFFFFFFFF, 0xFFFF0000, 0x80000000, 0x0);
   var m2 = SIMD.Int32x4.fromFloat32x4Bits(SIMD.Float32x4.fromInt32x4Bits(m));

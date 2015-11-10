@@ -15,37 +15,38 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description: Tests the SIMD numerical operations.
 includes: [simdUtilities.js]
 ---*/
+
 simdTypes.filter(isNumerical).forEach(function(type) {
-  test(type.name + ' equal', function() {
+  testSimdFunction(type.name + ' equal', function() {
     testRelationalOp(type, 'equal', function(a, b) { return a == b; });
   });
-  test(type.name + ' notEqual', function() {
+  testSimdFunction(type.name + ' notEqual', function() {
     testRelationalOp(type, 'notEqual', function(a, b) { return a != b; });
   });
-  test(type.name + ' lessThan', function() {
+  testSimdFunction(type.name + ' lessThan', function() {
     testRelationalOp(type, 'lessThan', function(a, b) { return a < b; });
   });
-  test(type.name + ' lessThanOrEqual', function() {
+  testSimdFunction(type.name + ' lessThanOrEqual', function() {
     testRelationalOp(type, 'lessThanOrEqual', function(a, b) { return a <= b; });
   });
-  test(type.name + ' greaterThan', function() {
+  testSimdFunction(type.name + ' greaterThan', function() {
     testRelationalOp(type, 'greaterThan', function(a, b) { return a > b; });
   });
-  test(type.name + ' greaterThanOrEqual', function() {
+  testSimdFunction(type.name + ' greaterThanOrEqual', function() {
     testRelationalOp(type, 'greaterThanOrEqual', function(a, b) { return a >= b; });
   });
-  test(type.name + ' add', function() {
+  testSimdFunction(type.name + ' add', function() {
     testBinaryOp(type, 'add', function(a, b) { return a + b; });
   });
-  test(type.name + ' sub', function() {
+  testSimdFunction(type.name + ' sub', function() {
     testBinaryOp(type, 'sub', function(a, b) { return a - b; });
   });
-  test(type.name + ' mul', function() {
+  testSimdFunction(type.name + ' mul', function() {
     testBinaryOp(type, 'mul', type.mulFn);
   });
 });

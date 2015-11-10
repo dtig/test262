@@ -15,13 +15,13 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description: Tests SIMD load and store bit preservation.
 includes: [simdUtilities.js]
 ---*/
 
-test('Float32x4 Int32x4 load/store bit preservation', function() {
+testSimdFunction('Float32x4 Int32x4 load/store bit preservation', function() {
    // NaNs should stay unmodified when storing and loading to Float32Array
   var taf32 = new Float32Array(4);
   var tai32 = new Int32Array(4);

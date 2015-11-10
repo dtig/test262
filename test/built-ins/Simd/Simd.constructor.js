@@ -15,12 +15,12 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description:Test the constructor and splat with the given lane values.
 includes: [simdUtilities.js]
 ---*/
-// Test the constructor and splat with the given lane values.
+
 function testConstructor(type) {
   assert.sameValue('function', typeof type.fn);
   assert.sameValue('function', typeof type.fn.splat);
@@ -35,7 +35,7 @@ function testConstructor(type) {
 }
 
 simdTypes.forEach(function(type) {
-  test(type.name + ' constructor', function() {
+  testSimdFunction(type.name + ' constructor', function() {
     testConstructor(type);
   });
 });

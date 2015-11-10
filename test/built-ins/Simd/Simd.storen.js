@@ -15,11 +15,12 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description: Tests Simdstore functions.
 includes: [simdUtilities.js]
 ---*/
+
 function testStore(type, name, count) {
   var storeFn = type.fn[name];
   assert.sameValue('function', typeof storeFn);
@@ -65,19 +66,19 @@ function testStore(type, name, count) {
 }
 
 simdTypes.filter(isNumerical).forEach(function(type) {
-  test(type.name + ' store', function() {
+  testSimdFunction(type.name + ' store', function() {
     testStore(type, 'store', type.lanes);
   });
 });
 
 simdTypes.filter(hasLoadStore123).forEach(function(type) {
-  test(type.name + ' store1', function() {
+  testSimdFunction(type.name + ' store1', function() {
     testStore(type, 'store1', 1);
   });
-  test(type.name + ' store1', function() {
+  testSimdFunction(type.name + ' store1', function() {
     testStore(type, 'store2', 2);
   });
-  test(type.name + ' store3', function() {
+  testSimdFunction(type.name + ' store3', function() {
     testStore(type, 'store3', 3);
   });
 });

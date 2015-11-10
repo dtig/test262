@@ -1,9 +1,20 @@
-// Copyright information
-
-/*---
-info: >
- SIMD Test Suite
----*/
+//  Copyright (C) 2015
+//
+//  This software is provided 'as-is', without any express or implied
+//  warranty.  In no event will the authors be held liable for any damages
+//  arising from the use of this software.
+//
+//  Permission is granted to anyone to use this software for any purpose,
+//  including commercial applications, and to alter it and redistribute it
+//  freely, subject to the following restrictions:
+//
+//  1. The origin of this software must not be misrepresented; you must not
+//     claim that you wrote the original software. If you use this software
+//     in a product, an acknowledgment in the product documentation would be
+//     appreciated but is not required.
+//  2. Altered source versions must be plainly marked as such, and must not be
+//     misrepresented as being the original software.
+//  3. This notice may not be removed or altered from any source distribution.
 
 function minNum(x, y) {
   return x != x ? y :
@@ -22,11 +33,6 @@ function sameValue(x, y) {
     return x != 0 || y != 0 || (1/x == 1/y);
 
   return x != x && y != y;
-}
-
-function sameValueZero(x, y) {
-  if (x == y) return true;
-  return x != x & y != y;
 }
 
 function binaryMul(a, b) { return a * b; }
@@ -411,7 +417,7 @@ function testRelationalOp(type, op, refOp) {
 var currentName = '<global>';
 var skipValueTests = false;
 
-function test(name, func) {
+function testSimdFunction(name, func) {
   currentName = name;
   if (typeof skipValueTests !== 'undefined' && skipValueTests &&
       name.indexOf('value semantics') != -1) return;

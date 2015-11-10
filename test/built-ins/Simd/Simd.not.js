@@ -15,19 +15,20 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description: Tests the unary not operation.
 includes: [simdUtilities.js]
 ---*/
+
 simdTypes.filter(isIntType).forEach(function(type) {
-  test(type.name + ' not', function() {
+  testSimdFunction(type.name + ' not', function() {
     testUnaryOp(type, 'not', function(a) { return ~a; });
   });
 });
 
 simdTypes.filter(isBoolType).forEach(function(type) {
-  test(type.name + ' not', function() {
+  testSimdFunction(type.name + ' not', function() {
     testUnaryOp(type, 'not', function(a) { return !a; });
   });
 });

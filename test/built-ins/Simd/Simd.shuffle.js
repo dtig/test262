@@ -15,11 +15,12 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description: Tests SIMD shuffle.
 includes: [simdUtilities.js]
 ---*/
+
 function testShuffle(type) {
   assert.sameValue('function', typeof type.fn.shuffle);
   var indices = [];
@@ -64,7 +65,7 @@ function testShuffle(type) {
 }
 
 simdTypes.filter(isNumerical).forEach(function(type) {
-  test(type.name + ' shuffle', function() {
+  testSimdFunction(type.name + ' shuffle', function() {
     testShuffle(type);
   });
 });

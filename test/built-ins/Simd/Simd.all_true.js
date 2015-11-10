@@ -15,11 +15,12 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description: AllTrue returns true if all the SIMDElements are true.
 includes: [simdUtilities.js]
 ---*/
+
 function testAllTrue(type) {
   assert.sameValue('function', typeof type.fn.allTrue);
   // All lanes 'true'.
@@ -36,7 +37,7 @@ function testAllTrue(type) {
 }
 
 simdTypes.filter(isBoolType).forEach(function(type) {
-  test(type.name + ' allTrue', function() {
+  testSimdFunction(type.name + ' allTrue', function() {
     testAllTrue(type, 'allTrue');
   });
 });

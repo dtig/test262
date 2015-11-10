@@ -15,11 +15,12 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description: Tests SIMD load functions.
 includes: [simdUtilities.js]
 ---*/
+
 function testLoad(type, name, count) {
   var loadFn = type.fn[name];
   assert.sameValue('function', typeof loadFn);
@@ -60,19 +61,19 @@ function testLoad(type, name, count) {
 }
 
 simdTypes.filter(isNumerical).forEach(function(type) {
-  test(type.name + ' load', function() {
+  testSimdFunction(type.name + ' load', function() {
     testLoad(type, 'load', type.lanes);
   });
 });
 
 simdTypes.filter(hasLoadStore123).forEach(function(type) {
-  test(type.name + ' load1', function() {
+  testSimdFunction(type.name + ' load1', function() {
     testLoad(type, 'load1', 1);
   });
-  test(type.name + ' load2', function() {
+  testSimdFunction(type.name + ' load2', function() {
     testLoad(type, 'load2', 2);
   });
-  test(type.name + ' load3', function() {
+  testSimdFunction(type.name + ' load3', function() {
     testLoad(type, 'load3', 3);
   });
 });

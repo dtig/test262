@@ -15,19 +15,20 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description: Test SIMD Logical operations.
 includes: [simdUtilities.js]
 ---*/
+
 simdTypes.filter(isLogical).forEach(function(type) {
-  test(type.name + ' and', function() {
+  testSimdFunction(type.name + ' and', function() {
     testBinaryOp(type, 'and', function(a, b) { return a & b; });
   });
-  test(type.name + ' or', function() {
+  testSimdFunction(type.name + ' or', function() {
     testBinaryOp(type, 'or', function(a, b) { return a | b; });
   });
-  test(type.name + ' xor', function() {
+  testSimdFunction(type.name + ' xor', function() {
     testBinaryOp(type, 'xor', function(a, b) { return a ^ b; });
   });
 });

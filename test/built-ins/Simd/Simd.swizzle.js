@@ -15,11 +15,12 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description: Tests Simd swizzle.
 includes: [simdUtilities.js]
 ---*/
+
 function testSwizzle(type) {
   assert.sameValue('function', typeof type.fn.swizzle);
   var a = createTestValue(type);  // 0, 1, 2, 3, 4, 5, 6, ...
@@ -52,7 +53,7 @@ function testSwizzle(type) {
 }
 
 simdTypes.filter(isNumerical).forEach(function(type) {
-  test(type.name + ' swizzle', function() {
+  testSimdFunction(type.name + ' swizzle', function() {
     testSwizzle(type);
   });
 });

@@ -15,21 +15,22 @@
 //  2. Altered source versions must be plainly marked as such, and must not be
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
+
 /*---
-info: >
- SIMD Test Suite
+description: Tests saturate methods.
 includes: [simdUtilities.js]
 ---*/
+
 simdTypes.filter(isSmallIntType).forEach(function(type) {
   function saturate(type, a) {
     if (a < type.minVal) return type.minVal;
     if (a > type.maxVal) return type.maxVal;
     return a;
   }
-  test(type.name + ' addSaturate', function() {
+  testSimdFunction(type.name + ' addSaturate', function() {
     testBinaryOp(type, 'addSaturate', function(a, b) { return saturate(type, a + b); });
   });
-  test(type.name + ' subSaturate', function() {
+  testSimdFunction(type.name + ' subSaturate', function() {
     testBinaryOp(type, 'subSaturate', function(a, b) { return saturate(type, a - b); });
   });
 });
